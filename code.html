@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>  
+<script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	exportEnabled: true,
+	theme: "light2", // "light1", "light2", "dark1", "dark2"
+	title:{
+		text: "Depth of Ocean at Different Levels"
+	},
+	axisY: {
+		title: "Depth (in meters)",
+		suffix: " m",
+		reversed: true
+	},
+	axisX2: {
+		tickThickness: 0,
+		labelAngle: 0
+	},
+	data: [{
+		type: "column",
+		axisXType: "secondary",
+		yValueFormatString: "#,##0 meters",
+      	indexLabelFontSize: 16,
+		dataPoints: [
+			{ y: 300, label: "Continental Shelf" },
+			{ y: 3000, label: "Continental Slope" },
+			{ y: 4000, label: "Continental Rise" },
+			{ y: 6000, label: "Abyssal Plain", indexLabel: "\u2193 Deepest" },
+			{ y: 4400, label: "Sea Mount" }
+		]
+	}]
+});
+chart.render();
+
+}
+</script>
+</head>
+<body>
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+<script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+</body>
+</html>
